@@ -2,8 +2,8 @@
 FROM python:3.9-slim
 
 # Set environment variables
-ENV PYTHONUNBUFFERED True
-ENV PORT 8000
+ENV PYTHONUNBUFFERED=True
+ENV PORT=8000
 
 # Set the working directory
 WORKDIR /app
@@ -17,5 +17,5 @@ RUN pip install -r requirements.txt
 # Expose the port that the app will run on
 EXPOSE 8000
 
-# Run the application
-CMD exec gunicorn --bind :$PORT app:app
+# Run the application using JSON syntax
+CMD ["gunicorn", "--bind", ":8000", "app:app"]
