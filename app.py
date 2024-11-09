@@ -5,6 +5,7 @@ import numpy as np
 from PIL import Image
 from google.cloud import storage
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 # Initialize Flask app
 app = Flask(__name__)
 model = tf.keras.models.load_model('classifier/cifar10_model.h5')
